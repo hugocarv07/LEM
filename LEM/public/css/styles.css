@@ -23,18 +23,27 @@ header{
 }
 
 .btn-primary{
-    background-color: #f2a340;
-    border: 2px solid #c28008;
+    background-color: #00BFFF;
+    border: 2px solid #00BFFF;
 }
 
 .btn-primary:hover{
-    background-color: #C28008;
-    border: 2px solid #c28008;
+    background-color: #00BFFF;
+    border: 2px solid #00BFFF;
 }
 
+.msg{
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 10px;
+}
 
 h1{
-    color: white;
+    color: #00BFFF;
 }
 #navbar img{
     width: 60px;
@@ -54,7 +63,7 @@ h1{
 
 #navbar a:hover{
     font-size: 14px;
-    color: #F2A340;
+    color: #00BFFF;
 }
 
 #search-container{
@@ -68,7 +77,7 @@ h1{
 }
 
 #serch-container h1{
-    color:#F2A340;
+    color:#00BFFF;
     margin-bottom: 30px;
     font-weight: 900;
 }
@@ -96,11 +105,11 @@ h1{
 }
 
 #events-container .card{
-    flex: 1 1 0;
+    flex: 1 1 24%;
     max-width: 25%;
     border-radius: 10px;
     padding: 0;
-    margin:5px;
+    margin:.5%;
 }
 
 #events-container img{
@@ -124,6 +133,73 @@ h1{
 .card-participants{
     font-size: 14px;
     color:#757575;
+}
+
+#event-create-container{
+    padding: 30px;
+}
+
+#event-create-container label{
+    font-weight: bold;
+}
+
+#event-create-container input,
+#event-create-container select,
+#event-create-container textarea{
+    font-size: 12px;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+#image-container,
+#info-container{
+    margin-top: 30px;
+}
+
+#image-container img{
+    border-radius: 10px;
+}
+
+#info-container h1{
+    font-size: 36px;
+    font-weight: 900;
+}
+
+#info-container p {
+    margin: 0;
+    font-size: 14px;
+    display: flex;
+}
+
+#info-container h3,
+#description-container h3 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#info-container ion-icon {
+  font-size: 20px;
+  color: #00BFFF;
+  margin-right: 5px;
+}
+#description-container{
+    margin-top: 30px;
+}
+
+.dashboard-title-container{
+    margin-bottom: 30px;
+    margin-top:30px;
+}
+.dashboard-events-container th{
+    width:25%;
+}
+.dashboard-events-container form{
+    display: inline-block;
+}
+
+.img-preview{
+    width: 100px;
+    margin-top: 20px;
 }
 
 footer{

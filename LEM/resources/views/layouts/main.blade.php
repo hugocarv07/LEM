@@ -28,15 +28,15 @@
                 </a>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="/" class="nav-link"> Projetos</a>
+                        <a href="/" class="nav-link"> Produtos</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/events/create" class="nav-link"> Criar Projeto</a>
+                        <a href="/events/create" class="nav-link"> Criar Produto</a>
                     </li>
                    @auth
  
                    <li class="nav-item">
-                    <a href="/dashboard" class="nav-link"> Meus Projetos</a>
+                    <a href="/dashboard" class="nav-link"> Meus Produtos</a>
                 </li>
 
                 <li class="nav-item">
@@ -61,7 +61,17 @@
                 </div>
             </nav>
         </header>
-    @yield('content')
+      <main>
+        <div class="comtainer-fluid">
+            <div class="row">
+                @if (@session('msg'))
+                <p class="msg">{{session('msg')}}</p>
+                    
+                @endif
+                @yield('content')
+            </div>
+        </div>
+      </main>
         <footer>
      <p> LABORATÓRIOS EDUCAÇÃO MATEMÁTICA  &copy; 2024</p>
     </footer>
