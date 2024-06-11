@@ -24,7 +24,7 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="collapse navbar-collapse" id="navbar">
                     <a href="" class="nabar-brand">
-                    <img src="/img/LEM.png" alt="LEM">
+                    <img src="/img/Logo ok.png" alt="LEM">
                 </a>
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -51,11 +51,12 @@
                    
                     @guest
                     <li class="nav-item">
-                        <a href="/login" class="nav-link"> Entrar</a>
-                    </li>
-                    <li class="nav-item">
                         <a href="/register" class="nav-link"> Cadastrar</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link"> Entrar</a>
+                    </li>
+                    
                     @endguest
                 </ul>
                 </div>
@@ -73,7 +74,15 @@
         </div>
       </main>
         <footer>
-     <p> LABORATÓRIOS EDUCAÇÃO MATEMÁTICA  &copy; 2024</p>
+            <div class="img" id="footer">
+            <img src="/img/Logo ok.png" alt="LEM">
+            </div>
+            <div class="info" id="footer">
+     <p> Sistema de gestão de produtos educacionais  &copy; 2024</p>
+     <p> Universidade Federal de Juiz de Fora</p>
+     <p> Suporte.pe@ice.ufjf.br</p>
+     <p> (32)99##82929</p>
+            </div>
     </footer>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

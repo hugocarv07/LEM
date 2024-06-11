@@ -4,16 +4,27 @@
     
 
 <div id="search-container" class="col-md-12">
-    <h1>Busque um produto</h1>
+    {{-- <h1>Busque um produto</h1> --}}  
+<div id="search-2" class="p2">
     <form action="" method="GET">
         <input type="text" id="search" name="search" class="form-control" placeholder="Procurar">
     </form>
+    <div id="search-3" class="p3">
+    <img src="/img/lupa.png">
 </div>
+</div>
+</div>
+
+<div  id="Principal" class="imgPrincipal">
+    <img src="/img/Principal.jpg">
+ </div>
+ 
+
 <div id="events-container" class="col-md-12">
     @if($search)
     <h2>Buscando por: {{ $search }}</h2>
     @else
-    <h2>Produtos Principais</h2>
+    <h2>Produtos</h2>
     <p class="subtitle">Veja alguns produtos</p>
     @endif
     <div id="cards-container" class="row">
