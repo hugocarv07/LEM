@@ -19,7 +19,10 @@ return new class extends Migration
             $table->text("description");
             $table->String("city");
             $table->String("image");
-          
+            $table->String("Pdf");
+            $table->String("Orientador");
+            $table->String("ppg");
+            
         });
     }
 

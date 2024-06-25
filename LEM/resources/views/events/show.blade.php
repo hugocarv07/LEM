@@ -11,9 +11,13 @@
       </div>
       <div id="info-container" class="col-md-6">
         <h1>{{ $event->title }}</h1>
-        <p class="event-city"><ion-icon name="location-outline"></ion-icon> {{ $event->city }}</p>
-        <p class="event-owner"><ion-icon name="people-outline"></ion-icon> Criador do produto: {{ $eventOwner['name'] }}</p>
+        <p class="event-owner"> Autor: {{ $eventOwner['name'] }}</p>
+        <p class="event-orientador"></ion-icon> Orientador(a): {{ $event->Orientador }}</p>
+        <p class="event-DataCriacao"></ion-icon> Data de Criação: {{ $event->created_at }}</p>
+      
+        
       </div>
+      <p class="event-Pdf"> PDF: {{ $event->Pdf }}</p>
       <div class="col-md-12" id="description-container">
         <h3>Sobre o Produto:</h3>
         <p class="event-description">{{ $event->description }}</p>

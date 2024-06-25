@@ -1,6 +1,10 @@
 *{
     font-family: 'Roboto';
 }
+header{
+    padding: 0;
+    margin-top: -8px;
+}
 
 body{
     min-height: 100vh;
@@ -55,11 +59,13 @@ h2{
     background-color: 	#4169E1;
     padding:0%;
     margin: 0%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 #navbar a{
     font-size: 14px;
     color: white;
+    /* font-weight: bold; */
 }
 
 #navbar a:hover{
@@ -76,6 +82,7 @@ h2{
     text-align: center;
     align-items: center;
     display: flex;
+    justify-content: center;
 }
 
 #search-container h1{
@@ -90,12 +97,13 @@ h2{
     border-radius: 90px;
 }
 #search-2{
-    width: 100%;
+    width: 80%;
     height: 70px;
     background-color: #4169E1;
     border-radius: 10px;
     display: flex;
     align-items: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 #search-3{
     background-color: white;
@@ -114,10 +122,15 @@ h2{
  margin-bottom: 5%;
  width: 100%;
  background-color: #F1EDE3;
+ display: flex;
+ align-items: center;
+ justify-content: center;
 
 }
 .imgPrincipal img{
-    width: 100%;
+    width: 80%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    
  }
 
 #events-container{
@@ -136,7 +149,6 @@ h2{
 .cards-container{
     display: flex;
     padding: 10%;
-    
 }
 
 #events-container .card{
@@ -145,6 +157,7 @@ h2{
     border-radius: 10px;
     padding: 0;
     margin:.5%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 #events-container img{
@@ -184,6 +197,7 @@ h2{
     font-size: 12px;
     margin-bottom: 2%;
     margin-top: 2%;
+
 }
 
 #image-container,
@@ -198,18 +212,22 @@ h2{
 #info-container h1{
     font-size: 36px;
     font-weight: 900;
+    color: #4169E1;
 }
 
 #info-container p {
     margin: 0;
-    font-size: 14px;
+    font-size: 20px;
     display: flex;
+    color: #4169E1;
+    margin-top: 70px;
 }
 
 #info-container h3,
 #description-container h3 {
   font-size: 20px;
   font-weight: bold;
+  color: #4169E1;
 }
 
 #info-container ion-icon {
@@ -219,18 +237,36 @@ h2{
 }
 #description-container{
     margin-top: 30px;
+    color: #4169E1;
 }
 
 .dashboard-title-container{
     margin-bottom: 30px;
     margin-top:30px;
+    display: flex;
+    justify-content: center;
+}
+.dashboard-title-container h1{
+   font-size: 72px;
+   font-weight: bold;
 }
 .dashboard-events-container th{
     width:25%;
+    background-color: #4169E1;
 }
 .dashboard-events-container form{
     display: inline-block;
 }
+
+.dashboard-events-container tbody{
+   border-radius: 10px;
+   background-color: #F1EDE3;
+}
+
+.dashboard-events-container table{
+    border-radius: 10px;
+    background-color: #4169E1;
+ }
 
 .img-preview{
     width: 100px;
@@ -240,24 +276,77 @@ h2{
 footer{
     background-color: 	#4169E1;
     color: #FFF;
-    padding: 1px;
+    padding: 5px;
     position: absolute;
     bottom: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 
 #footer img{
-    width: 150px;
+    width: 170px;
     
 }
 .info{
     text-align: start;
-    margin-right: 5%;
+    font-weight: bold;
 }
 .info p{
     padding: 1px;
 }
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+ }
+ 
+ .table-blue {
+    background-color: #4169E1; /* Cor de fundo azul */
+    color: black; /* Cor do texto preta */
+    border-radius: 10px; /* Borda arredondada */
+    border-spacing: 5px; /* Espaçamento entre as células */
+    border-collapse: separate; /* Colapso separado das bordas */
+    overflow: hidden; /* Evita que o overflow afete a aparência */
+    width: 100%; /* Largura total da tabela */
+    margin-bottom: 80px;
+}
+
+.table-blue th,
+.table-blue td {
+    padding: 10px; /* Espaçamento interno das células */
+    text-align: left; /* Alinhamento do texto à esquerda */
+    border: 1px solid #fff; /* Bordas das células */
+}
+
+.table-blue th:first-child,
+.table-blue td:first-child {
+    border-top-left-radius: 10px; /* Arredonda a borda superior esquerda */
+}
+
+.table-blue th:last-child,
+.table-blue td:last-child {
+    border-top-right-radius: 10px; /* Arredonda a borda superior direita */
+}
+
+.table-blue a {
+    color: #4169E1; /* Cor do texto dos links */
+    text-decoration: none; /* Remove sublinhado dos links */
+}
+
+.table-blue a:hover {
+    color: #ccc; /* Cor do texto dos links ao passar o mouse */
+}
+.action-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.edit-btn,
+.delete-btn {
+    margin: 5px; /* Espaçamento entre os botões */
+}
+

@@ -3,126 +3,104 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-Use App\Models\Event;
-Use App\Models\User;
+use App\Models\Event;
+use App\Models\User;
 
 class EventController extends Controller
 {
     public function index() {
-     
-      $search = request('search');
+        $search = request('search');
 
-      if($search) {
+        if ($search) {
+            $events = Event::where('title', 'like', '%'.$search.'%')->paginate(8); // Pagina com 1 itens por página
+        } else {
+            $events = Event::paginate(8); // Pagina com 1 itens por página
+        }        
 
-          $events = Event::where([
-              ['title', 'like', '%'.$search.'%']
-          ])->get();
-
-      } else {
-          $events = Event::all();
-      }        
-  
-      return view('welcome',['events' => $events, 'search' => $search]);
+        return view('welcome', ['events' => $events, 'search' => $search]);
     }
 
     public function create() {
-      return view('events.create');
+        return view('events.create');
     }
 
     public function store(Request $request){
-      
-      $event = new Event;
+        $event = new Event;
 
-      $event->name = $request->name;
-      $event->title = $request->title;
-      $event->city = $request->city;
-      $event->description = $request->description;
+        $event->name = $request->name;
+        $event->title = $request->title;
+        $event->city = $request->city;
+        $event->description = $request->description;
+        $event->Pdf = $request->Pdf;
+        $event->Orientador = $request->Orientador;
+        $event->ppg = $request->ppg;
 
+        //upload de imagem
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName(). strtotime("now")) . "." . $extension;
 
-      //upload de imagem
-      if($request->hasFile('image') && $request->file('image')->isValid()){
-         $requestImage = $request->image;
-         $extension = $requestImage->extension();
-         $imageName = md5($requestImage->getClientOriginalName(). strtotime("now")) . "." . $extension;
+            $requestImage->move(public_path('img/produtos'), $imageName);
 
-         $requestImage->move(public_path('img/produtos'), $imageName);
+            $event->image = $imageName;
+        }
+        
+        $user = auth()->user();
+        $event->user_id = $user->id;
 
-         $event->image = $imageName;
+        $event->save();
 
-      }
-      
-      $user = auth()->user();
-      $event->user_id = $user->id;
-
-      $event->save();
-
-      return redirect('/')-> with('msg', 'Produdo criado com sucesso!');
+        return redirect('/')->with('msg', 'Produto criado com sucesso!');
     }
 
-public function show($id){
+    public function show($id) {
+        $event = Event::findOrFail($id);
+        $eventOwner = User::where('id', $event->user_id)->first()->toArray();
 
-  $event = Event::findOrFail($id);
+        return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner]);
+    }
 
-  $eventOwner = User::where('id', $event->user_id)->first()->toArray();
+    public function dashboard() {
+        $user = auth()->user();
+        $events = $user->events;
 
-  return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner]);
+        return view('events.dashboard', ['events'=> $events]);
+    }
 
-}
-
-public function dashboard(){
-  $user = auth()->user();
-
-  $events = $user->events;
-
-  return view('events.dashboard', ['events'=> $events]);
-
-}
-
- public function destroy($id) {
-
+    public function destroy($id) {
         Event::findOrFail($id)->delete();
 
         return redirect('/dashboard')->with('msg', 'Produto excluído com sucesso!');
-
     }
+
     public function edit($id) {
+        $user = auth()->user();
+        $event = Event::findOrFail($id);
 
-      $user = auth()->user();
+        if ($user->id != $event->user_id) {
+            return redirect('/dashboard');
+        }
 
-      $event = Event::findOrFail($id);
+        return view('events.edit', ['event' => $event]);
+    }
 
-      if($user->id != $event->user_id){
-        return redirect('/dashboard');
-      }
+    public function update(Request $request) {
+        $data = $request->all();
 
-      return view('events.edit', ['event' => $event]);
+        // Image Upload
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
 
-  }
+            $requestImage->move(public_path('img/events'), $imageName);
 
-  public function update(Request $request) {
+            $data['image'] = $imageName;
+        }
 
-      $data = $request->all();
+        Event::findOrFail($request->id)->update($data);
 
-      // Image Upload
-      if($request->hasFile('image') && $request->file('image')->isValid()) {
-
-          $requestImage = $request->image;
-
-          $extension = $requestImage->extension();
-
-          $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
-
-          $requestImage->move(public_path('img/events'), $imageName);
-
-          $data['image'] = $imageName;
-
-      }
-
-      Event::findOrFail($request->id)->update($data);
-
-      return redirect('/dashboard')->with('msg', 'Produto editado com sucesso!');
-
-  }
+        return redirect('/dashboard')->with('msg', 'Produto editado com sucesso!');
+    }
 }
-

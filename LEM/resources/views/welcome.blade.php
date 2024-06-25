@@ -1,31 +1,29 @@
 @extends('layouts.main')
 @section('title', 'LEM')
 @section('content')
-    
 
 <div id="search-container" class="col-md-12">
     {{-- <h1>Busque um produto</h1> --}}  
-<div id="search-2" class="p2">
-    <form action="" method="GET">
-        <input type="text" id="search" name="search" class="form-control" placeholder="Procurar">
-    </form>
-    <div id="search-3" class="p3">
-    <img src="/img/lupa.png">
-</div>
-</div>
+    <div id="search-2" class="p2">
+        <form action="" method="GET">
+            <input type="text" id="search" name="search" class="form-control" placeholder="Procurar">
+        </form>
+        <div id="search-3" class="p3">
+            <img src="/img/lupa.png" id="search-icon" style="cursor: pointer;">
+        </div>
+    </div>
 </div>
 
-<div  id="Principal" class="imgPrincipal">
+<div id="Principal" class="imgPrincipal">
     <img src="/img/Principal.jpg">
- </div>
- 
+</div>
 
 <div id="events-container" class="col-md-12">
     @if($search)
-    <h2>Buscando por: {{ $search }}</h2>
+        <h2>Buscando por: {{ $search }}</h2>
     @else
-    <h2>Produtos</h2>
-    <p class="subtitle">Veja alguns produtos</p>
+        <h2>PRODUTOS</h2>
+        <p class="subtitle">VEJA ALGUNS PRODUTOS</p>
     @endif
     <div id="cards-container" class="row">
         @foreach ($events as $event)
@@ -34,16 +32,19 @@
                 <div class="card-body">
                     <p class="card-date">{{ $event->created_at }}</p>
                     <h5 class="card-title">{{ $event->title }}</h5>
-                    <p class="card-participants">Criador(a):{{ $event->name }}</p>
+                    <p class="card-participants">Autor(a):{{ $event->name }}</p>
                     <a href="/events/{{$event->id}}" class="btn btn-primary">Ver mais</a>
                 </div>
             </div> <!-- Fechando a div do card aqui -->
         @endforeach
         @if(count($events) == 0 && $search)
-        <p>Não foi possível encontrar nenhum produto com o nome: {{ $search }} ! <a href="/">Ver todos</a></p>
-    @elseif(count($events) == 0)
-        <p>Não há produtos disponíveis</p>
-    @endif
+            <p>Não foi possível encontrar nenhum produto com o nome: {{ $search }} ! <a href="/">Ver todos</a></p>
+        @elseif(count($events) == 0)
+            <p>Não há produtos disponíveis</p>
+        @endif
+    </div>
+    <div id="pagination" class="pagination-justify-content-center">
+        {{ $events->links() }}
     </div>
 </div>
 

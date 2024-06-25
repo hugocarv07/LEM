@@ -1,0 +1,11 @@
+/* public/css/custom.css */
+.bg-custom {
+    background-color: #F1EDE3; /* Cor de fundo para todo o layout */
+}
+
+.bg-form-custom {
+    background-color: #4169E1; /* Cor de fundo para o formulário */
+    color: white; /* Cor do texto branca para melhor contraste */
+    border-radius: 8px; /* Bordas arredondadas para o formulário */
+    padding: 20px; /* Espaçamento interno */
+}

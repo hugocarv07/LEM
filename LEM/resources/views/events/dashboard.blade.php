@@ -1,35 +1,37 @@
 @extends('layouts.main')
 
-@section('title', 'Dasboard')
+@section('title', 'Dashboard')
 
 @section('content')
 
 <div class="col-md-10 offset-md-1 dashboard-title-container">
-    <h1>Meus Produtos</h1>
+    <h1>Gerenciamento de Produtos</h1>
 </div>
 <div class="col-md-10 offset-md-1 dashboard-events-container">
     @if(count($events) > 0)
-    <table class="table">
+    <table class="table-blue">
         <thead>
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Produto</th>
-                <th scope="col">Criador</th>
-                <th scope="col">Ações</th>
+                <th>ID</th>
+                <th>Produto</th>
+                <th>Autor</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
             @foreach($events as $event)
                 <tr>
-                    <td scropt="row">{{ $loop->index + 1 }}</td>
+                    <td>{{ $loop->index + 1 }}</td>
                     <td><a href="/events/{{ $event->id }}">{{ $event->title }}</a></td>
                     <td>{{ $event->name }}</td>
                     <td>
-                        <a href="/events/edit/{{ $event->id }}" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon> Editar</a> 
-                        <form action="/events/{{ $event->id }}" method="POST">
+                        <div class="action-buttons">
+                            <a href="/events/edit/{{ $event->id }}" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon> Editar</a>
+                            <button type="button" class="btn btn-danger delete-btn" onclick="deleteEvent({{ $event->id }})"><ion-icon name="trash-outline"></ion-icon> Deletar</button>
+                        </div>
+                        <form id="delete-form-{{ $event->id }}" action="/events/{{ $event->id }}" method="POST" style="display: none;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger delete-btn"><ion-icon name="trash-outline"></ion-icon> Deletar</button>
                         </form>
                     </td>
                 </tr>
@@ -37,8 +39,20 @@
         </tbody>
     </table>
     @else
-    <p>Você ainda não tem produtos adicionados , <a href="/events/create">criar Produto</a></p>
+    <p>Você ainda não tem produtos adicionados, <a href="/events/create">criar Produto</a></p>
     @endif
 </div>
 
+<!-- Incluindo o script Ionicons apenas uma vez -->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<!-- Script JavaScript para deletar evento -->
+<script>
+    function deleteEvent(id) {
+        if (confirm('Tem certeza que deseja deletar este item?')) {
+            document.getElementById('delete-form-' + id).submit();
+        }
+    }
+</script>
 @endsection
