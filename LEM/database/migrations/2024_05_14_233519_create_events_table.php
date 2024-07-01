@@ -22,7 +22,7 @@ return new class extends Migration
             $table->String("Pdf");
             $table->String("Orientador");
             $table->String("ppg");
-            
+
         });
     }
 
