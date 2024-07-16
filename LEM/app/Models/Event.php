@@ -9,9 +9,15 @@ class Event extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
-
-    public function user(){
-        return $this->belongsTo('App\Models\User');
-    }
+    protected $fillable = [
+        'title',
+        'name',
+        'city',
+        'description',
+        'image',
+        'Pdf',
+        'user_id',
+        'Orientador',
+        'ppg'
+    ];
 }

@@ -1,39 +1,42 @@
-*{
+* {
     font-family: 'Roboto';
 }
-header{
+
+header {
     padding: 0;
     margin-top: -8px;
 }
 
-body{
+body {
     min-height: 100vh;
     width: 100%;
     padding-bottom: 100px;
-    position: absolute;
+    position: relative;
     background-color: #F1EDE3;
 }
 
-.row{
-    margin:0;
-    margin-bottom:5%;
+.row {
+    margin: 0;
+    margin-bottom: 5%;
 }
 
-.Container-fluid{
+.Container-fluid {
     padding: 0;
 }
 
-.btn-primary{
+.btn-primary {
+    background-color: #F1EDE3;
+    border: 2px solid #4169E1;
+    color: #4169E1;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
     background-color: #4169E1;
     border: 2px solid #00BFFF;
 }
 
-.btn-primary:hover{
-    background-color: #00BFFF;
-    border: 2px solid #00BFFF;
-}
-
-.msg{
+.msg {
     background-color: #d4edda;
     color: #155724;
     border: 1px solid #c3e6cb;
@@ -43,38 +46,100 @@ body{
     padding: 10px;
 }
 
-h1{
+/* Estilos para o container da ficha avaliativa */
+#ficha-avaliativa-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 80%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    color: #F1EDE3;
+    font-weight: bold;
+}
+
+h2 {
     color: #4169E1;
 }
 
-h2{
+/* Estilos para formulário dentro do container */
+#ficha-avaliativa-container form {
+    width: 90%;
+}
+
+#ficha-avaliativa-container .form-group {
+    margin-bottom: 15px;
+}
+
+#ficha-avaliativa-container label {
+    font-weight: bold;
     color: #4169E1;
 }
-#navbar img{
+
+#ficha-avaliativa-container input,
+#ficha-avaliativa-container select,
+#ficha-avaliativa-container textarea {
+    width: 100%;
+    padding: 12px;  /* Tamanho reduzido dos campos */
+    background-color: #F1EDE3;  /* Cor de fundo dos campos */
+    border-radius: 10px;  /* Bordas mais redondas */
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    font-size: 14px;  /* Tamanho da fonte reduzido */
+}
+
+/* Remove a cor de fundo dos campos de arquivo */
+#ficha-avaliativa-container input[type="file"] {
+    background-color: white;
+}
+
+#ficha-avaliativa-container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #00BFFF;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#ficha-avaliativa-container input[type="submit"]:hover {
+    background-color: #4169E1;
+}
+
+#navbar img {
     width: 60px;
     margin-left: 30%;
 }
-#navbar{
+
+#navbar {
     justify-content: space-between;
-    background-color: 	#4169E1;
-    padding:0%;
+    background-color: #4169E1;
+    padding: 0%;
     margin: 0%;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-#navbar a{
+#navbar a {
     font-size: 14px;
     color: white;
-    /* font-weight: bold; */
 }
 
-#navbar a:hover{
+#navbar a:hover {
     font-size: 14px;
     color: #00BFFF;
 }
 
-#search-container{
-    /* background-image: url("../img/LEM fundo.png"); */
+#search-container {
     background-color: #F1EDE3;
     background-size: cover;
     background-position: center;
@@ -85,18 +150,19 @@ h2{
     justify-content: center;
 }
 
-#search-container h1{
-    color:#00BFFF;
+#search-container h1 {
+    color: #00BFFF;
     margin-bottom: 30px;
     font-weight: 900;
 }
 
-#search-container form{
+#search-container form {
     width: 90%;
     margin: 0 auto;
     border-radius: 90px;
 }
-#search-2{
+
+#search-2 {
     width: 80%;
     height: 70px;
     background-color: #4169E1;
@@ -105,70 +171,71 @@ h2{
     align-items: center;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
-#search-3{
+
+#search-3 {
     background-color: white;
     border-radius: 30px;
     margin-right: 1%;
     display: flex;
     align-items: center;
 }
-.p3 img{
+
+.p3 img {
     width: 50px;
     height: 50px;
 }
 
-#Principal{
- margin-top: 5%;
- margin-bottom: 5%;
- width: 100%;
- background-color: #F1EDE3;
- display: flex;
- align-items: center;
- justify-content: center;
-
+#Principal {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 100%;
+    background-color: #F1EDE3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.imgPrincipal img{
+
+.imgPrincipal img {
     width: 80%;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-    
- }
+}
 
-#events-container{
+#events-container {
     padding: 50px;
 }
 
-#events-container h2{
+#events-container h2 {
     margin-bottom: 10px;
 }
 
-#events-container .subtitle{
+#events-container .subtitle {
     color: #4169E1;
     margin-bottom: 30px;
 }
 
-.cards-container{
+.cards-container {
     display: flex;
     padding: 10%;
 }
 
-#events-container .card{
+#events-container .card {
     flex: 1 1 24%;
     max-width: 25%;
     border-radius: 10px;
     padding: 0;
-    margin:.5%;
+    margin: .5%;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-#events-container img{
+#events-container img {
     max-height: 150px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
-.card .card-date{
+.card .card-date {
     font-size: 12px;
-    color:#CCC;
+    color: #CCC;
 }
 
 .card .card-title {
@@ -178,38 +245,61 @@ h2{
     margin-bottom: 30px;
 }
 
-.card-participants{
+.card-participants {
     font-size: 14px;
-    color:#4169E1;
+    color: #4169E1;
 }
 
-#event-create-container{
-    padding: 30px;
+#event-create-container {
+    width: 100%;
+    background-color: #4169E1;
+    border-radius: 10px;
+    margin: 0 auto; /* Centraliza a div horizontalmente */
 }
 
-#event-create-container label{
+#event-create-container label {
     font-weight: bold;
 }
 
 #event-create-container input,
 #event-create-container select,
-#event-create-container textarea{
-    font-size: 12px;
+#event-create-container textarea {
+    font-size: 14px; /* Tamanho da fonte reduzido */
     margin-bottom: 2%;
     margin-top: 2%;
+    padding: 12px;  /* Tamanho reduzido dos campos */
+    background-color: #F1EDE3;  /* Cor de fundo dos campos */
+    border-radius: 10px;  /* Bordas mais redondas */
+    border: 1px solid #ccc;
+}
 
+#event-create-container input[type="file"] {
+    background-color: #4169E1;
+}
+
+.site-blue {
+    background-color: #4169E1;
+    padding: 60px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto; 
+    margin-bottom: 4%;
+    margin-top: 2%;
 }
 
 #image-container,
-#info-container{
+#info-container {
     margin-top: 30px;
 }
 
-#image-container img{
+#image-container img {
     border-radius: 10px;
 }
 
-#info-container h1{
+#info-container h1 {
     font-size: 36px;
     font-weight: 900;
     color: #4169E1;
@@ -225,56 +315,60 @@ h2{
 
 #info-container h3,
 #description-container h3 {
-  font-size: 20px;
-  font-weight: bold;
-  color: #4169E1;
+    font-size: 20px;
+    font-weight: bold;
+    color: #4169E1;
 }
 
 #info-container ion-icon {
-  font-size: 20px;
-  color: #00BFFF;
-  margin-right: 5px;
+    font-size: 20px;
+    color: #00BFFF;
+    margin-right: 5px;
 }
-#description-container{
+
+#description-container {
     margin-top: 30px;
     color: #4169E1;
 }
 
-.dashboard-title-container{
+.dashboard-title-container {
     margin-bottom: 30px;
-    margin-top:30px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
 }
-.dashboard-title-container h1{
-   font-size: 72px;
-   font-weight: bold;
+
+.dashboard-title-container h1 {
+    font-size: 72px;
+    font-weight: bold;
 }
-.dashboard-events-container th{
-    width:25%;
+
+.dashboard-events-container th {
+    width: 25%;
     background-color: #4169E1;
 }
-.dashboard-events-container form{
+
+.dashboard-events-container form {
     display: inline-block;
 }
 
-.dashboard-events-container tbody{
-   border-radius: 10px;
-   background-color: #F1EDE3;
+.dashboard-events-container tbody {
+    border-radius: 10px;
+    background-color: #F1EDE3;
 }
 
-.dashboard-events-container table{
+.dashboard-events-container table {
     border-radius: 10px;
     background-color: #4169E1;
- }
+}
 
-.img-preview{
+.img-preview {
     width: 100px;
     margin-top: 20px;
 }
 
-footer{
-    background-color: 	#4169E1;
+footer {
+    background-color: #4169E1;
     color: #FFF;
     padding: 5px;
     position: absolute;
@@ -285,16 +379,16 @@ footer{
     justify-content: space-evenly;
 }
 
-
-#footer img{
+#footer img {
     width: 170px;
-    
 }
-.info{
+
+.info {
     text-align: start;
     font-weight: bold;
 }
-.info p{
+
+.info p {
     padding: 1px;
 }
 
@@ -302,44 +396,45 @@ footer{
     display: flex;
     justify-content: center;
     padding: 0;
- }
- 
- .table-blue {
-    background-color: #4169E1; /* Cor de fundo azul */
-    color: black; /* Cor do texto preta */
-    border-radius: 10px; /* Borda arredondada */
-    border-spacing: 5px; /* Espaçamento entre as células */
-    border-collapse: separate; /* Colapso separado das bordas */
-    overflow: hidden; /* Evita que o overflow afete a aparência */
-    width: 100%; /* Largura total da tabela */
+}
+
+.table-blue {
+    background-color: #4169E1;
+    color: black;
+    border-radius: 10px;
+    border-spacing: 5px;
+    border-collapse: separate;
+    overflow: hidden;
+    width: 100%;
     margin-bottom: 80px;
 }
 
 .table-blue th,
 .table-blue td {
-    padding: 10px; /* Espaçamento interno das células */
-    text-align: left; /* Alinhamento do texto à esquerda */
-    border: 1px solid #fff; /* Bordas das células */
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #fff;
 }
 
 .table-blue th:first-child,
 .table-blue td:first-child {
-    border-top-left-radius: 10px; /* Arredonda a borda superior esquerda */
+    border-top-left-radius: 10px;
 }
 
 .table-blue th:last-child,
 .table-blue td:last-child {
-    border-top-right-radius: 10px; /* Arredonda a borda superior direita */
+    border-top-right-radius: 10px;
 }
 
 .table-blue a {
-    color: #4169E1; /* Cor do texto dos links */
-    text-decoration: none; /* Remove sublinhado dos links */
+    color: #4169E1;
+    text-decoration: none;
 }
 
 .table-blue a:hover {
-    color: #ccc; /* Cor do texto dos links ao passar o mouse */
+    color: #ccc;
 }
+
 .action-buttons {
     display: flex;
     justify-content: center;
@@ -347,6 +442,5 @@ footer{
 
 .edit-btn,
 .delete-btn {
-    margin: 5px; /* Espaçamento entre os botões */
+    margin: 5px;
 }
-
